@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serigne Fallou Faye — Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            neonBlue: '#00bcd4'
+          },
+          animation: {
+            glow: 'glow 1.5s ease-in-out infinite alternate'
+          },
+          keyframes: {
+            glow: {
+              '0%': { boxShadow: '0 0 10px #00bcd4, 0 0 20px #00bcd4' },
+              '100%': { boxShadow: '0 0 20px #00bcd4, 0 0 40px #00bcd4' }
+            }
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .glass {
+      backdrop-filter: blur(10px);
+      background-color: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glass:hover { transform: translateY(-5px); box-shadow: 0 0 25px #00bcd4, 0 0 50px #00bcd4; }
+    .fade-up { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+    .fade-up.show { opacity: 1; transform: translateY(0); }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at 20% 20%, rgba(0,188,212,0.15), transparent 50%), radial-gradient(circle at 80% 80%, rgba(0,188,212,0.1), transparent 50%);
+      z-index: -1;
+      animation: moveBG 30s linear infinite;
+    }
+    @keyframes moveBG {
+      0% { background-position: 0% 0%, 100% 100%; }
+      50% { background-position: 50% 50%, 50% 50%; }
+      100% { background-position: 0% 0%, 100% 100%; }
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans overflow-x-hidden">
+
+  <!-- Header -->
+  <header class="fixed w-full top-0 z-50 bg-gray-900/50 backdrop-blur-md shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-2xl font-bold text-neonBlue animate-glow">Serigne Fallou Faye</h1>
+      <nav class="space-x-4">
+        <a href="#about" class="hover:text-neonBlue transition">À propos</a>
+        <a href="#projects" class="hover:text-neonBlue transition">Projets</a>
+        <a href="#skills" class="hover:text-neonBlue transition">Compétences</a>
+        <a href="#contact" class="hover:text-neonBlue transition">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-24">
+    <!-- Hero -->
+    <section class="container mx-auto text-center py-20 fade-up" id="hero">
+      <img src="avatar.jpg" alt="Serigne Fallou Faye" class="w-60 h-80 mx-auto rounded-xl border-4 border-neonBlue mb-6 animate-glow">
+      <h2 class="text-4xl font-bold mb-4">DUT2 Génie Électrique – ESP</h2>
+      <p class="text-gray-300 mb-6 max-w-xl mx-auto">Développer mes compétences en électronique, électrotechnique, automatique, informatique industrielle et télécommunication et réaliser des projets innovants.</p>
+      <a href="#contact" class="inline-block bg-neonBlue text-gray-900 font-bold py-3 px-6 rounded-lg hover:scale-105 transition transform">Me contacter</a>
+    </section>
+
+    <!-- About / Education -->
+    <section id="about" class="container mx-auto py-16 fade-up">
+      <h2 class="text-3xl font-bold text-center mb-10">À propos & Éducation</h2>
+      <div class="glass p-6 rounded-xl mx-auto max-w-4xl">
+        <h3 class="text-2xl font-semibold mb-4">Bio & Éducation</h3>
+        <p>Né le 6 août 2005 à Diourbel (Sénégal). Actuellement en DUT Génie Électrique à l'ESP, option EEAIT. Mon objectif est de développer mes compétences en électronique, électrotechnique et automatique, informatique industrielle et télécommunication et de réaliser des projets innovants.</p>
+        <ul class="list-disc list-inside text-gray-300 mt-4">
+          <li>2024 – Présent : DUT Génie Électrique – ESP, Dakar (Option EEAIT)</li>
+          <li>2024 : Baccalauréat Mathématiques et Sciences Physiques (S1) – Lycée Cheikh Mouhamadou Moustapha Mbacké, Diourbel, Mention Assez Bien</li>
+          <li>Réussite au concours ESP – Option EEAIT</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="container mx-auto py-16 fade-up">
+      <h2 class="text-3xl font-bold text-center mb-10">Projets</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Firetrack-X -->
+        <div class="glass p-6 rounded-xl hover:scale-105 transition transform hover:shadow-[0_0_25px_#00bcd4,0_0_50px_#00bcd4]">
+          <img src="firetrack.jpg" alt="Firetrack-X" class="w-full h-[24rem] object-cover rounded-md mb-4">
+          <h3 class="text-2xl font-semibold mb-2">Firetrack-X</h3>
+          <p>Firetrack-X est un projet de détection et intervention contre les incendies. Il intègre une maison intelligente équipée de capteurs de température, de fumée et un robot capable de détecter et signaler les départs de feu. Le projet permet d’apprendre la domotique avancée, la programmation embarquée, l’intégration de capteurs et le développement d’algorithmes d’alerte en temps réel.</p>
+        </div>
+        <!-- Alimentation stabilisée 12V-1A -->
+        <div class="glass p-6 rounded-xl hover:scale-105 transition transform hover:shadow-[0_0_25px_#00bcd4,0_0_50px_#00bcd4]">
+          <img src="alimentation.png" alt="Alimentation stabilisée 12V-1A" class="w-full h-[24rem] object-cover rounded-md mb-4">
+          <h3 class="text-2xl font-semibold mb-2">Alimentation stabilisée 12V–1A</h3>
+          <p>Conception et réalisation d’une alimentation stabilisée fournissant 12V et 1A. Le projet permet d’apprendre la régulation de tension, la sécurité électrique, le dimensionnement des composants et l’analyse de circuits analogiques pour garantir une alimentation fiable et stable pour différents appareils électroniques.</p>
+        </div>
+        <!-- Mélangeur industriel -->
+        <div class="glass p-6 rounded-xl hover:scale-105 transition transform hover:shadow-[0_0_25px_#00bcd4,0_0_50px_#00bcd4]">
+          <img src="melangeur.png" alt="Mélangeur industriel" class="w-full h-[24rem] object-cover rounded-md mb-4">
+          <h3 class="text-2xl font-semibold mb-2">Mélangeur industriel</h3>
+          <p>Développement d’un mélangeur industriel piloté par microcontrôleur. Ce projet inclut le contrôle du moteur, la gestion des vitesses, la sécurité opérationnelle et l’optimisation du mélange. Il permet de comprendre l’automatisation industrielle, la programmation embarquée et l’intégration de capteurs pour améliorer la performance et la sécurité de la machine.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="container mx-auto py-16 fade-up">
+      <h2 class="text-3xl font-bold text-center mb-10">Compétences</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <span class="glass py-2 px-4 rounded-full hover:shadow-[0_0_15px_#00bcd4] transition">Électronique numérique</span>
+        <span class="glass py-2 px-4 rounded-full hover:shadow-[0_0_15px_#00bcd4] transition">Électronique analogique</span>
+        <span class="glass py-2 px-4 rounded-full hover:shadow-[0_0_15px_#00bcd4] transition">Programmation Arduino</span>
+        <span class="glass py-2 px-4 rounded-full hover:shadow-[0_0_15px_#00bcd4] transition">Python</span>
+        <span class="glass py-2 px-4 rounded-full hover:shadow-[0_0_15px_#00bcd4] transition">Conception & simulation de circuits</span>
+        <span class="glass py-2 px-4 rounded-full hover:shadow-[0_0_15px_#00bcd4] transition">Lecture de schémas électriques</span>
+        <span class="glass py-2 px-4 rounded-full hover:shadow-[0_0_15px_#00bcd4] transition">Travail en équipe</span>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container mx-auto py-16 fade-up">
+      <h2 class="text-3xl font-bold text-center mb-10">Contact</h2>
+      <div class="flex flex-col md:flex-row justify-center gap-8">
+        <a href="serignefallouf223@gmail.com" class="glass py-3 px-6 rounded-lg text-neonBlue font-semibold hover:shadow-[0_0_20px_#00bcd4] hover:scale-105 transition transform">Email</a>
+        <a href="tel:+221770952647" class="glass py-3 px-6 rounded-lg text-neonBlue font-semibold hover:shadow-[0_0_20px_#00bcd4] hover:scale-105 transition transform">Téléphone</a>
+        <a href="https://www.linkedin.com/in/serigne-fallou-faye-762ba0350?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="glass py-3 px-6 rounded-lg text-neonBlue font-semibold hover:shadow-[0_0_20px_#00bcd4] hover:scale-105 transition transform">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center py-8 text-gray-400">
+    © <span id="year"></span> Serigne Fallou Faye — Réalisé avec ❤️
+  </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.2 });
+    faders.forEach(fader => observer.observe(fader));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
